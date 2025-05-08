@@ -22,6 +22,8 @@ func _on_button_pressed() -> void:
 	else:
 		activeButtons.append(self)
 		_set_button_style(false)
+	
+	$PressSound.play()
 
 func _set_button_style(is_active: bool) -> void:	
 	if is_active:

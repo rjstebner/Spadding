@@ -65,10 +65,14 @@ func _on_button_pressed() -> void:
 		streakLabel.text = "Current Streak\n" + str(streak)
 		loseTimerNum = loseTimerNum - 0.5
 		loseTimer.start(loseTimerNum)
+
+		$VictorySound.play()
 	else:
+		$FailSound.play()
 		you_lose()
 
 func _on_timer_timeout() -> void:
+	
 	_on_button_pressed()
 		
 	
