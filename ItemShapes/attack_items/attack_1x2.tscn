@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://67utd1arni76"]
+
+[ext_resource type="Script" path="res://Script/item.gd" id="1_tvt2i"]
+[ext_resource type="Texture2D" uid="uid://cqpv2maqnnwwy" path="res://wallset4.png" id="2_xq2kq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf348"]
+size = Vector2(329, 168.5)
+
+[node name="attack1x2" type="Node2D" groups=["Rune"]]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(64, 42)
+scale = Vector2(0.5, 2)
+script = ExtResource("1_tvt2i")
+cell_shape = PackedVector2Array(0, 0, 0, 1)
+rune_type = "attack"
+default_location = Vector2(1180, 290)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(176.2, 88.6)
+scale = Vector2(1.46, 0.73)
+texture = ExtResource("2_xq2kq")
+
+[node name="Area2D" type="Area2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(176, 88.25)
+shape = SubResource("RectangleShape2D_mf348")

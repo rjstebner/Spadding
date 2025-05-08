@@ -1,0 +1,9 @@
+[
+	{
+	"Standard": {
+		"max_hp": 30,
+		"curr_hp": 30,
+		"active_player": true
+		}
+	}
+]

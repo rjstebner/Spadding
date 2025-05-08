@@ -1,0 +1,20 @@
+[
+	{
+		"location": "00",
+		"name": "Slime",
+		"level": 1,
+		"health": 10,
+		"actions": [
+			{
+				"chance": [0, 1, 2, 3, 4],
+				"type": "attack",
+				"damage": 10
+			},
+			{
+				"chance": [5, 6, 7, 8, 9],
+				"type": "shield",
+				"amount": 10
+			}
+		]
+	}
+]
