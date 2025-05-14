@@ -23,14 +23,11 @@ func get_cell_position(grid_pos: Vector2i) -> Vector2:
 
 # Check if an item can be placed at a specific grid position
 func can_place_item(item, grid_pos: Vector2i) -> bool:
-	print("Checking if item can be placed at: ", grid_pos)
 	for offset in item.get_shape_cells():
 		var cell = grid_pos + Vector2i(offset)
 		if cell.x < 0 or cell.y < 0 or cell.x >= GRID_WIDTH or cell.y >= GRID_HEIGHT:
-			print("Cell is out of bounds")
 			return false
 		if occupied[cell.x][cell.y] != null:
-			print("Cell is occupied")
 			return false
 	return true
 

@@ -2,6 +2,7 @@ extends Node
 
 var max_hp = 0
 var curr_hp = 0
+var shield = 0
 @onready var hp_label = $HPLabel  # Adjust the path as needed
 
 func _ready():
@@ -9,6 +10,9 @@ func _ready():
 	var player_stats = get_active_player(data)
 	if player_stats:
 		hp_label.text = "%d / %d" % [player_stats.curr_hp, player_stats.max_hp]
+		hp_label.modulate = Color(0,1,0)
+	max_hp = int(player_stats.max_hp)
+	curr_hp = int(player_stats.curr_hp)
 
 func load_json_file(path: String) -> Array:
 	var file = FileAccess.open(path, FileAccess.READ)
@@ -18,6 +22,7 @@ func load_json_file(path: String) -> Array:
 		if parsed:
 			return parsed
 	return []
+
 
 func get_active_player(data: Array) -> Dictionary:
 	if data.size() == 0:

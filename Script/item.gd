@@ -17,7 +17,6 @@ func _ready():
 	area.input_pickable = true
 	area.connect("input_event", Callable(self, "_on_input_event"))
 	z_index = -1
-	print("Cell Shape: ", cell_shape)
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
@@ -45,19 +44,15 @@ func try_snap_to_grid():
 	if grid.can_place_item(self, cell):
 		grid.place_item(self, cell)
 		current_grid_pos = cell
-		print("Item snapped to grid at: ", cell)
 	else:
 		var active_piece = ActivePiece.get_active_piece()
 		active_piece.position = active_piece.default_location
-		print(active_piece.default_location)
-		print("Can't place item here")
 
 func get_rune_type() -> String:
 	return rune_type
 
 func get_shape_cells() -> Array:
 
-	print("Cell Shape: ", cell_shape)
 	return cell_shape 
 
 func clear_current_grid_pos():
@@ -66,4 +61,3 @@ func clear_current_grid_pos():
 			var cell = current_grid_pos + Vector2i(shape_offset)
 			grid.occupied[cell.x][cell.y] = null
 		current_grid_pos = Vector2i(-1, -1)
-		print("Cleared current grid position")

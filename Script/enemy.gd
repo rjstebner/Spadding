@@ -4,6 +4,8 @@ extends Node2D
 
 var max_hp
 var curr_hp
+var shield: int
+var actions: Array
 
 func _ready():
 	randomize()
@@ -11,9 +13,12 @@ func _ready():
 	if enemy.size() > 0:  # Use size() to check if a dictionary is not empty
 		print("You encountered a %s!" % enemy["name"])
 		hp_label.text = "%d / %d" % [enemy["health"], enemy["health"]]
-
+		hp_label.modulate = Color(0,1,0)
 	max_hp = int(enemy.health)
 	curr_hp = max_hp
+	if enemy.has("actions"):
+		actions = enemy["actions"]
+
 func get_random_enemy_from_location(location_code: String) -> Dictionary:
 	var enemies = load_json_file("res://data/monsters.json")
 	var matching_enemies = []

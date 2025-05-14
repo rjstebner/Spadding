@@ -1,0 +1,633 @@
+[gd_scene load_steps=27 format=3 uid="uid://dde6h1w1rw1c7"]
+
+[ext_resource type="Script" path="res://Script/item_grid.gd" id="2_yvv52"]
+[ext_resource type="Script" path="res://Script/target_total.gd" id="4_f4vox"]
+[ext_resource type="Script" path="res://Script/number_panel.gd" id="4_q5rvt"]
+[ext_resource type="Script" path="res://Script/number_button.gd" id="5_co5v7"]
+[ext_resource type="Script" path="res://Script/timer.gd" id="6_dfcc4"]
+[ext_resource type="Script" path="res://Script/go_button.gd" id="6_qsem8"]
+[ext_resource type="Script" path="res://Script/score_display.gd" id="7_fus7y"]
+[ext_resource type="Script" path="res://Script/item.gd" id="7_uq6bu"]
+[ext_resource type="Texture2D" uid="uid://cqpv2maqnnwwy" path="res://wallset4.png" id="9_74fx8"]
+[ext_resource type="PackedScene" uid="uid://b642l1sqpl7l1" path="res://ItemShapes/attack_items/attack_1x1.tscn" id="9_xwn2m"]
+[ext_resource type="PackedScene" uid="uid://67utd1arni76" path="res://ItemShapes/attack_items/attack_1x2.tscn" id="10_tafws"]
+[ext_resource type="PackedScene" uid="uid://djrqe411g4hky" path="res://ItemShapes/attack_items/attack_2x1.tscn" id="11_hw6vj"]
+[ext_resource type="Script" path="res://Script/rune_page.gd" id="12_4ophn"]
+[ext_resource type="PackedScene" uid="uid://c2akm7u40jio5" path="res://ItemShapes/defend_items/defend_1x1.tscn" id="13_pwbr1"]
+[ext_resource type="PackedScene" uid="uid://cia1uvdfqnu3x" path="res://ItemShapes/defend_items/defend_1x2.tscn" id="14_s7q1q"]
+[ext_resource type="PackedScene" uid="uid://c08ccm5g4dd32" path="res://ItemShapes/defend_items/defend_2x1.tscn" id="15_5ge1x"]
+[ext_resource type="Script" path="res://Script/player.gd" id="17_7n0i4"]
+[ext_resource type="Script" path="res://Script/combat_manager.gd" id="17_knyyp"]
+[ext_resource type="Script" path="res://Script/enemy.gd" id="17_o1ibd"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d5j4n"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8fslj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vp27g"]
+radius = 23.0217
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_buuci"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6tjj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf348"]
+size = Vector2(144, 327)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c4cck"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ItemGrid" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 175.0
+offset_top = 100.0
+offset_right = 175.0
+offset_bottom = 100.0
+script = ExtResource("2_yvv52")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(700, 700)
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 900.0
+offset_bottom = 800.0
+texture = SubResource("PlaceholderTexture2D_d5j4n")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color(1, 0.494251, 0.42709, 1)
+offset_left = 200.0
+offset_top = 825.0
+offset_right = 850.0
+offset_bottom = 1025.0
+texture = SubResource("PlaceholderTexture2D_8fslj")
+
+[node name="GamePlayPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TargetTotal" type="Label" parent="GamePlayPanel"]
+layout_mode = 0
+offset_left = 361.0
+offset_right = 778.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 72
+text = "Target Total
+"
+script = ExtResource("4_f4vox")
+
+[node name="StartNumberGrid" type="Button" parent="GamePlayPanel"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 871.0
+offset_right = 982.0
+offset_bottom = 979.0
+
+[node name="NumberPanel" type="Control" parent="GamePlayPanel"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 175.0
+offset_top = 100.0
+offset_right = 875.0
+offset_bottom = 800.0
+script = ExtResource("4_q5rvt")
+
+[node name="Button01" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = -34.3
+offset_top = -18.9
+offset_right = 53.2
+offset_bottom = 53.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button01"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button01/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button02" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 133.7
+offset_top = -18.9
+offset_right = 221.2
+offset_bottom = 53.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button02"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button02/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button03" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 301.7
+offset_top = -18.9
+offset_right = 389.2
+offset_bottom = 53.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button03"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button03/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button04" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 469.7
+offset_top = -18.9
+offset_right = 557.2
+offset_bottom = 53.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button04"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button04/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button05" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = -34.3
+offset_top = 149.1
+offset_right = 53.2
+offset_bottom = 221.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button05"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button05/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button06" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 133.7
+offset_top = 149.1
+offset_right = 221.2
+offset_bottom = 221.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button06"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button06/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button07" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 301.7
+offset_top = 149.1
+offset_right = 389.2
+offset_bottom = 221.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button07"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button07/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button08" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 469.7
+offset_top = 149.1
+offset_right = 557.2
+offset_bottom = 221.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button08"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button08/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button09" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = -34.3
+offset_top = 317.1
+offset_right = 53.2
+offset_bottom = 389.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button09"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button09/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button10" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 133.7
+offset_top = 317.1
+offset_right = 221.2
+offset_bottom = 389.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button10/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button11" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 301.7
+offset_top = 317.1
+offset_right = 389.2
+offset_bottom = 389.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button11/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button12" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 469.7
+offset_top = 317.1
+offset_right = 557.2
+offset_bottom = 389.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button12/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button13" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 133.7
+offset_top = 485.1
+offset_right = 221.2
+offset_bottom = 557.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button13/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button14" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = -34.3
+offset_top = 485.1
+offset_right = 53.2
+offset_bottom = 557.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button14/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button15" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 301.7
+offset_top = 485.1
+offset_right = 389.2
+offset_bottom = 557.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button15/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="Button16" type="Button" parent="GamePlayPanel/NumberPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.067
+anchor_right = 0.164
+anchor_bottom = 0.164
+offset_left = 469.7
+offset_top = 485.1
+offset_right = 557.2
+offset_bottom = 557.2
+script = ExtResource("5_co5v7")
+
+[node name="Area2D" type="Area2D" parent="GamePlayPanel/NumberPanel/Button16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlayPanel/NumberPanel/Button16/Area2D"]
+position = Vector2(72, 62)
+shape = SubResource("CircleShape2D_vp27g")
+
+[node name="ScoreTracker" type="TextureRect" parent="GamePlayPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 2.142
+offset_left = 930.0
+offset_top = 170.0
+offset_right = 894.32
+offset_bottom = 719.0
+texture = SubResource("PlaceholderTexture2D_buuci")
+script = ExtResource("7_fus7y")
+
+[node name="AttackScore" type="Label" parent="GamePlayPanel/ScoreTracker" groups=["Scores"]]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 50.0
+offset_bottom = 22.0
+text = "Attack"
+
+[node name="DefendScore" type="Label" parent="GamePlayPanel/ScoreTracker" groups=["Scores"]]
+layout_mode = 0
+offset_top = 53.0
+offset_right = 57.0
+offset_bottom = 76.0
+text = "Defend"
+
+[node name="JoyScore" type="Label" parent="GamePlayPanel/ScoreTracker" groups=["Scores"]]
+layout_mode = 0
+offset_top = 157.0
+offset_right = 40.0
+offset_bottom = 180.0
+text = "Joy
+"
+
+[node name="PoisonScore" type="Label" parent="GamePlayPanel/ScoreTracker" groups=["Scores"]]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 52.0
+offset_bottom = 133.0
+text = "Poison"
+
+[node name="WeakenScore" type="Label" parent="GamePlayPanel/ScoreTracker" groups=["Scores"]]
+layout_mode = 0
+offset_top = 226.0
+offset_right = 63.0
+offset_bottom = 249.0
+text = "Weaken
+"
+
+[node name="VulnerableScore" type="Label" parent="GamePlayPanel/ScoreTracker" groups=["Scores"]]
+layout_mode = 0
+offset_top = 274.0
+offset_right = 84.0
+offset_bottom = 297.0
+text = "Vulnerable"
+
+[node name="FreezeScore" type="Label" parent="GamePlayPanel/ScoreTracker" groups=["Scores"]]
+layout_mode = 0
+offset_top = 326.0
+offset_right = 51.0
+offset_bottom = 349.0
+text = "Freeze
+"
+
+[node name="HasteScore" type="Label" parent="GamePlayPanel/ScoreTracker" groups=["Scores"]]
+layout_mode = 0
+offset_top = 385.0
+offset_right = 51.0
+offset_bottom = 408.0
+text = "Haste
+"
+
+[node name="Timer" type="Timer" parent="GamePlayPanel"]
+script = ExtResource("6_dfcc4")
+
+[node name="image1" type="TextureRect" parent="GamePlayPanel/Timer"]
+offset_left = 80.0
+offset_top = 208.0
+offset_right = 120.0
+offset_bottom = 288.0
+texture = SubResource("PlaceholderTexture2D_6tjj3")
+
+[node name="image2" type="TextureRect" parent="GamePlayPanel/Timer"]
+offset_left = 80.0
+offset_top = 308.0
+offset_right = 120.0
+offset_bottom = 388.0
+texture = SubResource("PlaceholderTexture2D_6tjj3")
+metadata/_edit_use_anchors_ = true
+
+[node name="image3" type="TextureRect" parent="GamePlayPanel/Timer"]
+offset_left = 80.0
+offset_top = 408.0
+offset_right = 120.0
+offset_bottom = 488.0
+texture = SubResource("PlaceholderTexture2D_6tjj3")
+metadata/_edit_use_anchors_ = true
+
+[node name="image4" type="TextureRect" parent="GamePlayPanel/Timer"]
+offset_left = 80.0
+offset_top = 508.0
+offset_right = 120.0
+offset_bottom = 588.0
+texture = SubResource("PlaceholderTexture2D_6tjj3")
+metadata/_edit_use_anchors_ = true
+
+[node name="image5" type="TextureRect" parent="GamePlayPanel/Timer"]
+anchors_preset = -1
+anchor_bottom = 0.091
+offset_left = 80.0
+offset_top = 608.0
+offset_right = 120.0
+offset_bottom = 589.72
+texture = SubResource("PlaceholderTexture2D_6tjj3")
+metadata/_edit_use_anchors_ = true
+
+[node name="GoButton" type="Button" parent="GamePlayPanel"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 825.0
+offset_right = 849.0
+offset_bottom = 1025.0
+script = ExtResource("6_qsem8")
+
+[node name="RunePage" type="Control" parent="GamePlayPanel"]
+layout_mode = 1
+anchor_left = 28.05
+anchor_top = 3.975
+anchor_right = 28.05
+anchor_bottom = 3.975
+offset_left = 1.0
+offset_top = -73.0
+offset_right = 41.0
+offset_bottom = -33.0
+script = ExtResource("12_4ophn")
+metadata/_edit_use_anchors_ = true
+
+[node name="AttackBTN" type="Button" parent="GamePlayPanel/RunePage"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 199.0
+offset_top = -44.0
+offset_right = 259.0
+offset_bottom = 16.0
+
+[node name="DefendBTN" type="Button" parent="GamePlayPanel/RunePage"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 359.0
+offset_top = -44.0
+offset_right = 419.0
+offset_bottom = 16.0
+
+[node name="object" type="Node2D" parent="."]
+position = Vector2(2138, 640)
+script = ExtResource("7_uq6bu")
+cell_shape = PackedVector2Array(0, 0, 1, 0)
+rune_type = "defend"
+
+[node name="Sprite2D" type="Sprite2D" parent="object"]
+position = Vector2(139, 103)
+scale = Vector2(0.725, 0.725)
+texture = ExtResource("9_74fx8")
+
+[node name="Area2D" type="Area2D" parent="object"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object/Area2D"]
+position = Vector2(139, 106)
+shape = SubResource("RectangleShape2D_mf348")
+
+[node name="item1x1" parent="." instance=ExtResource("9_xwn2m")]
+position = Vector2(399, 1277)
+
+[node name="attack_2x1" parent="." instance=ExtResource("11_hw6vj")]
+position = Vector2(267, 1667)
+default_location = Vector2(1180, 290)
+
+[node name="defend_1x1" parent="." instance=ExtResource("13_pwbr1")]
+position = Vector2(674, 1302)
+
+[node name="defend_2x1" parent="." instance=ExtResource("15_5ge1x")]
+position = Vector2(1090, 1148)
+
+[node name="defend_1x2" parent="." instance=ExtResource("14_s7q1q")]
+position = Vector2(978, 1583)
+
+[node name="attack1x2" parent="." instance=ExtResource("10_tafws")]
+position = Vector2(74, 1254)
+default_location = Vector2(1180, 490)
+
+[node name="CombatManager" type="Node2D" parent="."]
+script = ExtResource("17_knyyp")
+
+[node name="Player" type="Node2D" parent="CombatManager"]
+position = Vector2(1032, 914)
+script = ExtResource("17_7n0i4")
+
+[node name="HPLabel" type="Label" parent="CombatManager/Player"]
+offset_left = 7.0
+offset_top = 80.0
+offset_right = 56.0
+offset_bottom = 103.0
+text = "Hp: "
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatManager/Player"]
+position = Vector2(34, 37)
+scale = Vector2(21.5, 37.5)
+texture = SubResource("PlaceholderTexture2D_c4cck")
+
+[node name="Enemy" type="Node2D" parent="CombatManager"]
+position = Vector2(1384, 911)
+script = ExtResource("17_o1ibd")
+
+[node name="HPLabel" type="Label" parent="CombatManager/Enemy"]
+offset_left = 7.0
+offset_top = 80.0
+offset_right = 56.0
+offset_bottom = 103.0
+text = "Hp: "
+
+[node name="Label2" type="Label" parent="CombatManager/Enemy"]
+offset_left = -110.0
+offset_top = 26.0
+offset_right = -13.0
+offset_bottom = 49.0
+text = "Attack Value"
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatManager/Enemy"]
+position = Vector2(34, 37)
+scale = Vector2(21.5, 37.5)
+texture = SubResource("PlaceholderTexture2D_c4cck")

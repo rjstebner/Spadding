@@ -51,20 +51,15 @@ func update_button_color() -> void:
 
 	if rune_type == "default":
 			set_button_number([1, 2, 3, 4, 5, 6, 7, 8, 9])  
-			modulate = Color(1, 1, 1) 
 		
 	elif rune_type == "attack":
 			set_button_number([1, 2, 3, 4, 5, 6, 7, 8, 9]) 
-			modulate = Color(1, 0, 0)
-			print("Button change is happending ", rune_type, " ", modulate)
 
 		
 	elif rune_type == "defend":
 			set_button_number([1, 2, 3, 4, 5, 6, 7, 8, 9])  
-			modulate = Color(1, 1, 0)  
 	
 	else:
-		modulate = Color(1, 1, 1) 
 
 		set_button_number([1, 2, 3, 4, 5, 6, 7, 8, 9])  
 

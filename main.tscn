@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://dde6h1w1rw1c7"]
+[gd_scene load_steps=28 format=3 uid="uid://dde6h1w1rw1c7"]
 
+[ext_resource type="Script" path="res://Script/main_combat_instantiator.gd" id="1_udene"]
 [ext_resource type="Script" path="res://Script/item_grid.gd" id="2_yvv52"]
 [ext_resource type="Script" path="res://Script/target_total.gd" id="4_f4vox"]
 [ext_resource type="Script" path="res://Script/number_panel.gd" id="4_q5rvt"]
@@ -37,6 +38,7 @@ size = Vector2(144, 327)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c4cck"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_udene")
 
 [node name="ItemGrid" type="Control" parent="."]
 layout_mode = 3
@@ -620,7 +622,7 @@ offset_right = 56.0
 offset_bottom = 103.0
 text = "Hp: "
 
-[node name="Label2" type="Label" parent="CombatManager/Enemy"]
+[node name="Plan" type="Label" parent="CombatManager/Enemy"]
 offset_left = -110.0
 offset_top = 26.0
 offset_right = -13.0

@@ -77,7 +77,6 @@ func calculate_scores() -> void:
 	active_buttons_total = 0
 	
 	for data in active_buttons.values():
-		print("Type of number:", typeof(data["number"]), " Value:", data["number"])
 		active_buttons_total += int(data["number"])
 		
 		match data["rune_type"]:
@@ -124,7 +123,6 @@ func reset_buttons() -> void:
 		button.set_button_number([1, 2, 3, 4, 5, 6, 7, 8, 9])  # Reset button number to default
 
 func victory() -> void:
-	print("You win!")
 	timer_duration -= 0.5
 	timer.start(timer_duration)
 	randomize_target(10,40)
@@ -132,7 +130,6 @@ func victory() -> void:
 
 func defeat() -> void:
 	# This function is called when the player loses
-	print("You lose!")
 	# Disable the number Panel and reset rune postion
 	#play animation
 	#when animation finshed
@@ -149,8 +146,9 @@ func defeat() -> void:
 	timer_duration = timer_default_duration
 
 	send_scores_to_combat()
-	#combat_manager.start_turn()
+	await combat_manager.start_turn()
 	reset_scores()
+	timer.stop()
 
 
 func _on_timer_timeout() -> void:
