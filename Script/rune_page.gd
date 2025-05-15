@@ -3,6 +3,7 @@ extends Node
 var player
 var runes_from_player
 var runes: Array = []
+var rune_occupied_counter = [0,0,0,0,0,0,0,0]
 var main: Node2D #Rename later
 
 # Called when the node enters the scene tree for the first time.
@@ -65,5 +66,23 @@ func _init_runes():
 
 func set_rune_default_location(rune_instance: Node2D) -> void:
 	# make dynamic layer
-	if rune_instance.has_method("set"):
-		rune_instance.set("default_location", Vector2(1000, 100))
+	var default_rune_location = [
+		Vector2(1100, 150),
+		Vector2(1350, 150),
+		Vector2(1600, 150),
+		Vector2(1100, 400),
+		Vector2(1350, 400),
+		Vector2(1600, 400),
+		Vector2(1100, 650),
+		Vector2(1350, 650),
+		Vector2(1600, 650),
+	]
+	match rune_instance.rune_type:
+		"attack":
+			rune_instance.set("default_location", default_rune_location[rune_occupied_counter[0]])
+			rune_occupied_counter[0] += 1
+		"defend":
+			rune_instance.set("default_location", default_rune_location[rune_occupied_counter[1]])
+			rune_occupied_counter[1] += 1
+
+
