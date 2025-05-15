@@ -49,6 +49,7 @@ func instantiate_runes():
 			var rune_instance = rune_scene.instantiate()
 			rune_instance.add_to_group("Rune")
 			main.add_child(rune_instance)
+			rune_instance.scale = Vector2(0.3,0.3)
 			set_rune_default_location(rune_instance)
 
 func _init_runes():

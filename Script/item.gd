@@ -43,10 +43,12 @@ func try_snap_to_grid():
 
 	if grid.can_place_item(self, cell):
 		grid.place_item(self, cell)
+		scale = Vector2(1,1)
 		current_grid_pos = cell
 	else:
 		var active_piece = ActivePiece.get_active_piece()
 		active_piece.position = active_piece.default_location
+		scale = Vector2(.3,.3)
 
 func get_rune_type() -> String:
 	return rune_type
