@@ -3,6 +3,7 @@ extends Node
 var max_hp = 0
 var curr_hp = 0
 var shield = 0
+var runes
 @onready var hp_label = $HPLabel  # Adjust the path as needed
 
 func _ready():
@@ -13,6 +14,8 @@ func _ready():
 		hp_label.modulate = Color(0,1,0)
 	max_hp = int(player_stats.max_hp)
 	curr_hp = int(player_stats.curr_hp)
+
+	runes = player_stats.get("runes", [])
 
 func load_json_file(path: String) -> Array:
 	var file = FileAccess.open(path, FileAccess.READ)
@@ -33,3 +36,4 @@ func get_active_player(data: Array) -> Dictionary:
 		if char.get("active_player", false):
 			return char
 	return {}
+

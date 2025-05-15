@@ -1,25 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt4h64q7obo7k"]
+[gd_scene load_steps=4 format=3 uid="uid://bhu7ypbte36f4"]
 
-[ext_resource type="Script" path="res://Script/item.gd" id="1_7yk71"]
-[ext_resource type="Texture2D" uid="uid://cvynajq14ofn3" path="res://Images/WhiteSquare1x2.png" id="2_dnifh"]
+[ext_resource type="Script" path="res://Script/item.gd" id="1_bi6ht"]
+[ext_resource type="Texture2D" uid="uid://bh2huxja4xk7o" path="res://Images/WhiteSquare2x2.png" id="2_plkil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vv2r"]
-size = Vector2(170, 341)
+size = Vector2(343, 344)
 
 [node name="item1x1" type="Node2D" groups=["Rune"]]
 modulate = Color(1, 1, 1, 0.392157)
-rotation = 1.5708
-script = ExtResource("1_7yk71")
+script = ExtResource("1_bi6ht")
 cell_shape = PackedVector2Array(0, 0)
 rune_type = "attack"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(87.5, -175)
-texture = ExtResource("2_dnifh")
+position = Vector2(175, 175)
+texture = ExtResource("2_plkil")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(87.5, -175)
+position = Vector2(175, 175)
 shape = SubResource("RectangleShape2D_6vv2r")

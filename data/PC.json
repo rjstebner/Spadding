@@ -3,7 +3,13 @@
 	"Standard": {
 		"max_hp": 30,
 		"curr_hp": 30,
-		"active_player": true
+		"active_player": true,
+		"runes": [
+			"res://ItemShapes/attack_items/attack_1x1.tscn",
+			"res://ItemShapes/attack_items/attack_1x1.tscn",
+			"res://ItemShapes/attack_items/attack_2x1.tscn",
+			"res://ItemShapes/defend_items/defend_1x1.tscn"			
+		]
 		}
 	}
 ]

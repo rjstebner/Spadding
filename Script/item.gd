@@ -2,7 +2,7 @@ extends Node2D
 
 @export var cell_shape: PackedVector2Array = PackedVector2Array([Vector2(0, 0)])
 @export var rune_type: String = "default"  # Type of item
-@export var default_location: Vector2
+var default_location: Vector2
 
 var is_dragging = false
 var offset = Vector2()
@@ -12,7 +12,7 @@ var grid: Control
 
 func _ready():
 	area = $Area2D
-	grid = get_parent().get_node("ItemGrid") # Replace with actual path to grid Control node
+	grid = get_tree().get_first_node_in_group("Grid")
 
 	area.input_pickable = true
 	area.connect("input_event", Callable(self, "_on_input_event"))
@@ -38,7 +38,7 @@ var current_grid_pos: Vector2i = Vector2i(-1, -1)  # Default to an invalid posit
 func try_snap_to_grid():
 	# Convert global position to grid-local position
 	
-	var local_pos = global_position - grid.global_position + (Vector2(grid.CELL_SIZE) / 2.0)
+	var local_pos = global_position - grid.global_position + (Vector2(grid.CELL_SIZE) / 2) # use offset to move maybe
 	var cell = Vector2i(local_pos / Vector2(grid.CELL_SIZE))
 
 	if grid.can_place_item(self, cell):

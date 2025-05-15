@@ -1,26 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2akm7u40jio5"]
+[gd_scene load_steps=4 format=3 uid="uid://faqbrcttkhyc"]
 
-[ext_resource type="Script" path="res://Script/item.gd" id="1_dvt6r"]
-[ext_resource type="Texture2D" uid="uid://cqpv2maqnnwwy" path="res://wallset4.png" id="2_o5muq"]
+[ext_resource type="Script" path="res://Script/item.gd" id="1_chhmc"]
+[ext_resource type="Texture2D" uid="uid://1wos3t77yi8" path="res://Images/WhiteSquare1x1.png" id="2_yxsev"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf348"]
-size = Vector2(167, 165)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vv2r"]
+size = Vector2(170, 170)
 
-[node name="defend_1x1" type="Node2D" groups=["Rune"]]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(14, 25)
-script = ExtResource("1_dvt6r")
+[node name="item1x1" type="Node2D" groups=["Rune"]]
+modulate = Color(1, 1, 1, 0.392157)
+script = ExtResource("1_chhmc")
 cell_shape = PackedVector2Array(0, 0)
 rune_type = "defend"
-default_location = Vector2(1180, 90)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(88, 87)
-scale = Vector2(0.725, 0.725)
-texture = ExtResource("2_o5muq")
+modulate = Color(1, 1, 0, 1)
+position = Vector2(87.5, 87.5)
+texture = ExtResource("2_yxsev")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(89.5, 85.5)
-shape = SubResource("RectangleShape2D_mf348")
+position = Vector2(87.5, 87.5)
+shape = SubResource("RectangleShape2D_6vv2r")

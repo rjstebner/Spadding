@@ -1,6 +1,5 @@
-[gd_scene load_steps=28 format=3 uid="uid://dde6h1w1rw1c7"]
+[gd_scene load_steps=19 format=3 uid="uid://dde6h1w1rw1c7"]
 
-[ext_resource type="Script" path="res://Script/main_combat_instantiator.gd" id="1_udene"]
 [ext_resource type="Script" path="res://Script/item_grid.gd" id="2_yvv52"]
 [ext_resource type="Script" path="res://Script/target_total.gd" id="4_f4vox"]
 [ext_resource type="Script" path="res://Script/number_panel.gd" id="4_q5rvt"]
@@ -8,18 +7,12 @@
 [ext_resource type="Script" path="res://Script/timer.gd" id="6_dfcc4"]
 [ext_resource type="Script" path="res://Script/go_button.gd" id="6_qsem8"]
 [ext_resource type="Script" path="res://Script/score_display.gd" id="7_fus7y"]
-[ext_resource type="Script" path="res://Script/item.gd" id="7_uq6bu"]
-[ext_resource type="Texture2D" uid="uid://cqpv2maqnnwwy" path="res://wallset4.png" id="9_74fx8"]
-[ext_resource type="PackedScene" uid="uid://b642l1sqpl7l1" path="res://ItemShapes/attack_items/attack_1x1.tscn" id="9_xwn2m"]
-[ext_resource type="PackedScene" uid="uid://67utd1arni76" path="res://ItemShapes/attack_items/attack_1x2.tscn" id="10_tafws"]
-[ext_resource type="PackedScene" uid="uid://djrqe411g4hky" path="res://ItemShapes/attack_items/attack_2x1.tscn" id="11_hw6vj"]
 [ext_resource type="Script" path="res://Script/rune_page.gd" id="12_4ophn"]
-[ext_resource type="PackedScene" uid="uid://c2akm7u40jio5" path="res://ItemShapes/defend_items/defend_1x1.tscn" id="13_pwbr1"]
-[ext_resource type="PackedScene" uid="uid://cia1uvdfqnu3x" path="res://ItemShapes/defend_items/defend_1x2.tscn" id="14_s7q1q"]
-[ext_resource type="PackedScene" uid="uid://c08ccm5g4dd32" path="res://ItemShapes/defend_items/defend_2x1.tscn" id="15_5ge1x"]
 [ext_resource type="Script" path="res://Script/player.gd" id="17_7n0i4"]
 [ext_resource type="Script" path="res://Script/combat_manager.gd" id="17_knyyp"]
 [ext_resource type="Script" path="res://Script/enemy.gd" id="17_o1ibd"]
+
+[sub_resource type="GDScript" id="GDScript_x1m68"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d5j4n"]
 
@@ -32,15 +25,12 @@ radius = 23.0217
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6tjj3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf348"]
-size = Vector2(144, 327)
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c4cck"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_udene")
+script = SubResource("GDScript_x1m68")
 
-[node name="ItemGrid" type="Control" parent="."]
+[node name="ItemGrid" type="Control" parent="." groups=["Grid"]]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 175.0
@@ -528,10 +518,10 @@ script = ExtResource("6_qsem8")
 
 [node name="RunePage" type="Control" parent="GamePlayPanel"]
 layout_mode = 1
-anchor_left = 28.05
-anchor_top = 3.975
-anchor_right = 28.05
-anchor_bottom = 3.975
+anchor_left = 26.925
+anchor_top = 2.55
+anchor_right = 44.2
+anchor_bottom = 3.8
 offset_left = 1.0
 offset_top = -73.0
 offset_right = 41.0
@@ -542,60 +532,23 @@ metadata/_edit_use_anchors_ = true
 [node name="AttackBTN" type="Button" parent="GamePlayPanel/RunePage"]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 199.0
-offset_top = -44.0
-offset_right = 259.0
-offset_bottom = 16.0
+offset_left = 77.0
+offset_top = 13.0
+offset_right = 137.0
+offset_bottom = 73.0
 
 [node name="DefendBTN" type="Button" parent="GamePlayPanel/RunePage"]
 modulate = Color(1, 1, 0, 1)
 layout_mode = 0
-offset_left = 359.0
-offset_top = -44.0
-offset_right = 419.0
-offset_bottom = 16.0
-
-[node name="object" type="Node2D" parent="."]
-position = Vector2(2138, 640)
-script = ExtResource("7_uq6bu")
-cell_shape = PackedVector2Array(0, 0, 1, 0)
-rune_type = "defend"
-
-[node name="Sprite2D" type="Sprite2D" parent="object"]
-position = Vector2(139, 103)
-scale = Vector2(0.725, 0.725)
-texture = ExtResource("9_74fx8")
-
-[node name="Area2D" type="Area2D" parent="object"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="object/Area2D"]
-position = Vector2(139, 106)
-shape = SubResource("RectangleShape2D_mf348")
-
-[node name="item1x1" parent="." instance=ExtResource("9_xwn2m")]
-position = Vector2(399, 1277)
-
-[node name="attack_2x1" parent="." instance=ExtResource("11_hw6vj")]
-position = Vector2(267, 1667)
-default_location = Vector2(1180, 290)
-
-[node name="defend_1x1" parent="." instance=ExtResource("13_pwbr1")]
-position = Vector2(674, 1302)
-
-[node name="defend_2x1" parent="." instance=ExtResource("15_5ge1x")]
-position = Vector2(1090, 1148)
-
-[node name="defend_1x2" parent="." instance=ExtResource("14_s7q1q")]
-position = Vector2(978, 1583)
-
-[node name="attack1x2" parent="." instance=ExtResource("10_tafws")]
-position = Vector2(74, 1254)
-default_location = Vector2(1180, 490)
+offset_left = 178.0
+offset_top = 12.0
+offset_right = 238.0
+offset_bottom = 72.0
 
 [node name="CombatManager" type="Node2D" parent="."]
 script = ExtResource("17_knyyp")
 
-[node name="Player" type="Node2D" parent="CombatManager"]
+[node name="Player" type="Node2D" parent="CombatManager" groups=["player"]]
 position = Vector2(1032, 914)
 script = ExtResource("17_7n0i4")
 
